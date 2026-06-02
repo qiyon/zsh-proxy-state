@@ -43,20 +43,20 @@ zsh_proxy_state_inject
 
 ### 方法二：手动配置
 
-你可以手动将 `$(zsh_proxy_state_indicator)` 添加到你的 `PROMPT` 或 `RPROMPT` 变量中。
+你可以手动将 `$(zsh_proxy_state_info)` 添加到你的 `PROMPT` 或 `RPROMPT` 变量中。
 
 **示例 1：显示在右侧提示符（推荐）**
 
 在 `~/.zshrc` 末尾添加：
 
 ```zsh
-RPROMPT='$(zsh_proxy_state_indicator)'
+RPROMPT='$(zsh_proxy_state_info)'
 ```
 
 **示例 2：自定义 PROMPT**
 
 ```zsh
-PROMPT='... $(git_prompt_info) $(zsh_proxy_state_indicator) ...'
+PROMPT='... $(git_prompt_info) $(zsh_proxy_state_info) ...'
 ```
 
 ## 配置
@@ -84,4 +84,4 @@ ZSH_PROXY_STATE_TEXT="Proxy"
 - `https_proxy`
 - `all_proxy`
 
-只要其中任意一个非空，函数 `zsh_proxy_state_indicator` 就会输出 `PX-On`。
+只要其中任意一个非空，函数 `zsh_proxy_state_info` 就会输出 `PX-On`。
