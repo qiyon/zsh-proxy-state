@@ -2,11 +2,16 @@
 #
 # 该插件提供了一个函数，用于检查代理环境变量是否设置。
 
+# 定义默认配置
+: ${ZSH_PROXY_STATE_ICON:="🌍"}
+: ${ZSH_PROXY_STATE_COLOR:="magenta"} # 品红色
+: ${ZSH_PROXY_STATE_TEXT:="[PX-On]"}
+
 # 定义一个函数来检查代理状态
-# 如果设置了 http_proxy, https_proxy, all_proxy (大小写均可)，则返回 "PX-On"
+# 如果设置了 http_proxy, https_proxy, all_proxy (大小写均可)，则返回格式化的指示器
 zsh_proxy_state_indicator() {
   if [[ -n "$http_proxy" || -n "$https_proxy" || -n "$HTTP_PROXY" || -n "$HTTPS_PROXY" || -n "$all_proxy" || -n "$ALL_PROXY" ]]; then
-    echo "「PX-On」"
+    echo "%F{$ZSH_PROXY_STATE_COLOR}${ZSH_PROXY_STATE_ICON}${ZSH_PROXY_STATE_TEXT}%f"
   fi
 }
 

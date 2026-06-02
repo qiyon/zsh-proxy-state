@@ -59,6 +59,24 @@ RPROMPT='$(zsh_proxy_state_indicator)'
 PROMPT='... $(git_prompt_info) $(zsh_proxy_state_indicator) ...'
 ```
 
+## 配置
+
+你可以通过在 `~/.zshrc` 中（在插件加载之前）设置以下变量来自定义显示效果：
+
+| 变量 | 说明 | 默认值 |
+| :--- | :--- | :--- |
+| `ZSH_PROXY_STATE_ICON` | 显示的图标/前缀 | `🌍` |
+| `ZSH_PROXY_STATE_COLOR` | 显示的颜色 (Zsh 颜色代码/单词) | `magenta` (品红色) |
+| `ZSH_PROXY_STATE_TEXT` | 显示的文字内容 | `PX-On` |
+
+**示例：**
+
+```zsh
+ZSH_PROXY_STATE_ICON="🚀"
+ZSH_PROXY_STATE_COLOR="blue"
+ZSH_PROXY_STATE_TEXT="Proxy"
+```
+
 ## 功能逻辑
 
 插件会检查以下环境变量（不区分大小写）：
