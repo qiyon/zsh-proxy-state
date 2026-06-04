@@ -4,27 +4,32 @@
 
 当检测到 `http_proxy`、`https_proxy` 或 `all_proxy` 等环境变量被设置时，它会在你的终端提示符中显示 `PX-On`，让你对网络环境一目了然。
 
-## 安装
+## 快速开始 (Quick Start)
 
-1. 将本插件克隆到你的 Oh My Zsh 自定义插件目录：
+如果你使用的是 Oh My Zsh 且主题包含 Git 状态显示，只需两步即可开启：
 
+1. **安装插件**：
    ```bash
    git clone https://github.com/qiyon/zsh-proxy-state.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-proxy-state
    ```
 
-2. 编辑 `~/.zshrc` 文件，将 `zsh-proxy-state` 添加到插件列表中：
-
+2. **配置 `.zshrc`**：
+   在 `~/.zshrc` 中添加插件名，并在文件**最末尾**添加注入命令：
    ```zsh
    plugins=(... zsh-proxy-state)
+
+   # ... 其他配置 ...
+
+   source $ZSH/oh-my-zsh.sh
+   zsh_proxy_state_inject  # <--- 确保在 source 之后调用
    ```
 
-3. 重新加载配置：
+3. **生效配置**：
+   你可以运行 `source ~/.zshrc` 立即尝试，但为了确保插件在当前会话中完全正确加载及其注入逻辑生效，**建议直接关闭当前终端窗口并重新开启一个新的会话**。
 
-   ```bash
-   source ~/.zshrc
-   ```
+---
 
-## 使用方法
+## Prompt 显示实现
 
 本插件提供了两种方式将代理状态集成到你的提示符（Prompt）中。
 
